@@ -38,11 +38,6 @@ const autoscroll = () => {
     }
 }
 
-
-
-
-
-
 socket.on('message',(message)=>{
     console.log(message)
     const html=Mustache.render(messageTemplate,{
@@ -72,7 +67,6 @@ socket.on('locationMessage',(message)=>{
     $messages.insertAdjacentHTML('beforeend',html)
     autoscroll()
 })
-
 
 $messageForm.addEventListener('submit',(e)=>{
     e.preventDefault()
@@ -116,13 +110,3 @@ socket.emit('join',{username,room},(error)=>{
 
 })
 
-
-
-// socket.on('countUpdated',(count)=>{
-//     console.log('The count has been updated !',count)
-// })
-
-// document.querySelector('#increase').addEventListener('click',()=>{
-//     console.log("increase count");
-//     socket.emit('increase')
-// })
